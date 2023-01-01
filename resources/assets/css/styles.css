@@ -1,0 +1,16 @@
+@font-face {
+    font-family: vazir;
+    font-style: normal;
+    font-weight: normal;
+    src: url('/vendor/health/fonts/vazir.woff') format('woff');
+}
+
+html, body {
+    direction: rtl;
+    text-align: right;
+    font-family: vazir !important;
+}
+
+body {
+    background: #edf2f7;
+}
