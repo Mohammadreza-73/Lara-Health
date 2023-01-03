@@ -14,7 +14,9 @@ class HealthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/health.php', 'health'
+        );
     }
 
     /**
