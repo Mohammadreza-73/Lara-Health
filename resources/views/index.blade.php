@@ -16,7 +16,7 @@
     <title> Laravel Health </title>
 </head>
 
-<body class="flex items-center justify-center" style="">
+<body class="flex items-center justify-center">
     <div class="flex justify-center">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
             @if(config("health.database"))
@@ -58,7 +58,7 @@
                     <div class="text-center">
                         <p class="text-xl font-semibold my-2"> دیتابیس </p>
                         <div class="flex space-x-2 text-sm">
-                            @if($data["database"]["status"])
+                            @if ($data["database"]["status"])
                             <span class="mx-auto bg-green-600 text-white py-2 px-3 rounded">
                                 صحیح
                             </span>
@@ -69,7 +69,7 @@
                             @endif
                         </div>
                     </div>
-                    @if(!$data["database"]["status"])
+                    @if (! $data["database"]["status"])
                     <div class="border-t-2 mt-3"></div>
                     <div class="mt-3 text-center">
                         <p class="text-base text-red-600">
@@ -81,7 +81,7 @@
             </div>
             @endif
 
-            @if(config("health.migrations"))
+            @if (config("health.migrations"))
             <div class="relative bg-white p-6 rounded-3xl w-64 mt-10 shadow-xl">
                 <div
                     class="text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-blue-500 right-4 -top-6">
@@ -95,7 +95,7 @@
                     <div class="text-center">
                         <p class="text-xl font-semibold my-2"> مایگریشن ها </p>
                         <div class="flex space-x-2 text-sm">
-                            @if($data["migrations"]["status"])
+                            @if ($data["migrations"]["status"])
                             <span class="mx-auto bg-green-600 text-white py-2 px-3 rounded">
                                 صحیح
                             </span>
@@ -106,7 +106,7 @@
                             @endif
                         </div>
                     </div>
-                    @if(!$data["migrations"]["status"])
+                    @if (! $data["migrations"]["status"])
                     <div class="border-t-2 mt-3"></div>
                     <div class="mt-3 text-center">
                         <p class="text-base text-red-600">
@@ -118,7 +118,7 @@
             </div>
             @endif
 
-            @if(config("health.routes"))
+            @if (config("health.routes"))
             <div class="relative bg-white p-6 rounded-3xl w-64 mt-10 shadow-xl">
                 <div
                     class="text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-green-500 right-4 -top-6">
@@ -135,7 +135,7 @@
                     <div class="text-center">
                         <p class="text-xl font-semibold my-2"> روت‌ها </p>
                         <div class="flex space-x-2 text-sm">
-                            @if($data["routes"]["status"])
+                            @if ($data["routes"]["status"])
                             <span class="mx-auto bg-green-600 text-white py-2 px-3 rounded">
                                 صحیح
                             </span>
@@ -146,7 +146,7 @@
                             @endif
                         </div>
                     </div>
-                    @if(!$data["routes"]["status"])
+                    @if (! $data["routes"]["status"])
                     <div class="border-t-2 mt-3"></div>
                     <div class="mt-3 text-center">
                         <p class="text-base text-red-600">
