@@ -4,8 +4,8 @@ namespace LaravelHealth\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
 class HealthController extends Controller
@@ -16,10 +16,10 @@ class HealthController extends Controller
         if (config('health.database')) {
             $database = [
                 'status' => true,
-                'data' => null
+                'data'   => null,
             ];
 
-            if (! self::checkDataBase()) {
+            if (!self::checkDataBase()) {
                 $database['status'] = false;
                 $database['data'] = 'اتصال به دیتابیس امکان‌پذیر نیست';
             }
@@ -29,10 +29,10 @@ class HealthController extends Controller
         if (config('health.migrations')) {
             $migrations = [
                 'status' => true,
-                'data' => null,
+                'data'   => null,
             ];
 
-            if (! self::checkMigrataions()) {
+            if (!self::checkMigrataions()) {
                 $migrations['status'] = false;
                 $migrations['data'] = 'در اجرا مایگریشن‌ها مشکلی وجود دارد';
             }
@@ -42,10 +42,10 @@ class HealthController extends Controller
         if (config('health.routes')) {
             $routes = [
                 'status' => true,
-                'data' => null,
+                'data'   => null,
             ];
 
-            if (! self::checkRoutes()) {
+            if (!self::checkRoutes()) {
                 $routes['status'] = false;
                 $routes['data'] = 'روت‌ها در درسترس نیستند';
             }
@@ -59,6 +59,7 @@ class HealthController extends Controller
     {
         try {
             DB::connection()->getPdo();
+
             return true;
         } catch (\Exception $e) {
             return false;
@@ -68,10 +69,11 @@ class HealthController extends Controller
     private static function checkMigrataions(): bool
     {
         $migrations = DB::table('migrations')->get();
-        $files = Storage::files(base_path() . '/database/migrations/');
+        $files = Storage::files(base_path().'/database/migrations/');
 
-        if (count($migrations) === count($files))
+        if (count($migrations) === count($files)) {
             return true;
+        }
 
         return false;
     }
@@ -89,10 +91,14 @@ class HealthController extends Controller
             $response = app()->handle(Request::create(url($route->uri())));
             $params = $route->parameters ?? [];
 
-            if (count($params)) continue;
+            if (count($params)) {
+                continue;
+            }
 
             $status = $response->status();
-            if ($status != 200) return false;
+            if ($status != 200) {
+                return false;
+            }
         }
 
         return true;
