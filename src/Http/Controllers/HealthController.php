@@ -55,12 +55,7 @@ class HealthController extends Controller
         return view('health::index', compact('data'));
     }
 
-    /**
-     * Check database connection
-     *
-     * @return bool
-     */
-    private static function checkDataBase()
+    private static function checkDataBase(): bool
     {
         try {
             DB::connection()->getPdo();
@@ -70,12 +65,7 @@ class HealthController extends Controller
         }
     }
 
-    /**
-     * Check migrations
-     *
-     * @return bool
-     */
-    private static function checkMigrataions()
+    private static function checkMigrataions(): bool
     {
         $migrations = DB::table('migrations')->get();
         $files = Storage::files(base_path() . '/database/migrations/');
@@ -86,12 +76,7 @@ class HealthController extends Controller
         return false;
     }
 
-    /**
-     * Check routes
-     *
-     * @return bool
-     */
-    private static function checkRoutes()
+    private static function checkRoutes(): bool
     {
         $blackList = ['health'];
         $routes = Route::getRoutes()->getRoutesByMethod()['GET'];
