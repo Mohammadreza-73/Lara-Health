@@ -69,7 +69,7 @@ class HealthController extends Controller
     private static function checkMigrataions(): bool
     {
         $migrations = DB::table('migrations')->get();
-        $files = Storage::files(base_path().'/database/migrations/');
+        $files = Storage::files(base_path() . '/database/migrations/');
 
         if (count($migrations) === count($files)) {
             return true;

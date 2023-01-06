@@ -15,7 +15,7 @@ class HealthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/health.php',
+            __DIR__ . '/../config/health.php',
             'health'
         );
     }
@@ -28,13 +28,13 @@ class HealthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/health'),
+            __DIR__ . '/../resources/assets' => public_path('vendor/health'),
         ], 'health');
 
         Route::group(['namespace' => 'LaravelHealth\Http\Controllers'], function () {
-            $this->loadRoutesFrom(__DIR__.'/../src/routes/web.php');
+            $this->loadRoutesFrom(__DIR__ . '/../src/routes/web.php');
         });
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'health');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'health');
     }
 }
