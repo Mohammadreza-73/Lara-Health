@@ -7,15 +7,15 @@
         {
             "name": "Mohammadreza",
             "email": "mohammadreza.rahimi93@yahoo.com",
-            "homepage": "https://m-rahimi.ir",
+            "homepage": "https://github.com/Mohammadreza-73/Lara-Health",
             "role": "Developer"
         }
     ],
+    "license": "MIT",
+    "require": {},
     "require-dev": {
         "orchestra/testbench": "^7.17"
     },
-    "license": "MIT",
-    "require": {},
     "autoload": {
         "psr-4": {
             "LaravelHealth\\": "src/"
@@ -23,6 +23,9 @@
     }, 
     "autoload-dev": {
         "LaravelHealth\\Tests\\": "tests/"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "laravel": {
