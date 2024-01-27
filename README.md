@@ -2,6 +2,12 @@
 
 Check General information from your laravel project, like Database, migrations and routes status.
 
+## Install
+
+```
+composer require m.rahimi/lara-health
+```
+
 ## Publish
 
 If you want to publish a resource file in your project, you can run this command in the terminal:
